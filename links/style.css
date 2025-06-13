@@ -35,7 +35,7 @@ body {
     border: 3px solid var(--primary-color);
     margin-bottom: 60px; /* Aumentado significativamente para descer mais a foto */
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center 20%; /* Alterado de 40% para 30% para mover a imagem mais para baixo */
     transform: scale(1.4);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
