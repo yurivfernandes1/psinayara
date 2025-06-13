@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Meta tags Open Graph -->
+    <meta property="og:title" content="Nayara Freitas - Psicóloga">
+    <meta property="og:description"
+        content="Te ajudo a desenvolver RELAÇÕES SAUDÁVEIS consigo e com os outros. Terapia Cognitivo-Comportamental">
+    <meta property="og:description" content="Entre em contato: (31) 99847-1298 e agende sua consulta.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/yurivfernandes/psinayara/refs/heads/main/public/fotos/experiencias.jpeg">
+    <meta property="og:url" content="https://psinayara.com.br">
+    <meta property="og:type" content="website">
+    <!-- Meta tags para WhatsApp -->
+    <meta property="og:site_name" id="og-site-name">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="description" id="meta-description">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Carregando GSAP e outros scripts no final do documento -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="main.jsx"></script>
+
+    <script>
+        // Carregar dados do Markdown
+        const data = {
+            profile: {
+                name: "Nayara Freitas",
+                title: "Psicóloga",
+                subtitle: "Terapia Cognitivo-Comportamental",
+                image: "https://raw.githubusercontent.com/yurivfernandes/psinayara/refs/heads/main/public/fotos/experiencias.jpeg",
+                about: {
+                    text: [
+                        "Te ajudo a desenvolver RELAÇÕES SAUDÁVEIS consigo e com os outros",
+                        "Através da Terapia Cognitivo-Comportamental, trabalho para ajudar você a construir relacionamentos mais saudáveis e uma melhor relação consigo mesmo."
+                    ],
+                    image: "https://github.com/yurivfernandes/psinayara/blob/main/public/fotos/experiencias.jpeg"
+                }
+            },
+            links: [
+                {
+                    title: "Agendar Consulta",
+                    url: "https://wa.me/5531998471298?text=Olá%2C%20gostaria%20de%20agendar%20a%20minha%20consulta.",
+                    icon: "fab fa-whatsapp"
+                },
+                {
+                    title: "Instagram",
+                    url: "https://www.instagram.com/nayarafpsi/",
+                    icon: "fab fa-instagram"
+                },
+                {
+                    title: "Meu Site",
+                    url: "https://psinayara.com.br",
+                    icon: "fas fa-globe"
+                }
+            ],
+            meta: {
+                description: "Nayara Freitas - Psicóloga. Terapia Cognitivo-Comportamental",
+                url: "https://psinayara.com.br"
+            }
+        };
+
+        // Remover o fetch e usar os dados direto
+        // Preencher meta tags
+        document.title = data.profile.name;
+        document.getElementById('page-title').textContent = data.profile.name;
+        document.getElementById('og-title').content = data.profile.name;
+        document.getElementById('og-description').content = data.meta.description;
+        document.getElementById('og-image').content = data.profile.image;
+        document.getElementById('og-url').content = data.meta.url;
+        document.getElementById('og-site-name').content = data.profile.name;
+        document.getElementById('meta-description').content = data.meta.description;
+
+        // Preencher perfil
+        document.getElementById('profile-image').src = data.profile.image;
+        document.getElementById('profile-image').alt = data.profile.name;
+        document.getElementById('profile-name').textContent = data.profile.name;
+        document.getElementById('profile-title').textContent = data.profile.title;
+        document.getElementById('profile-subtitle').textContent = data.profile.subtitle;
+
+        // Preencher sobre
+        const aboutText = document.getElementById('about-text');
+        data.profile.about.text.forEach(paragraph => {
+            const p = document.createElement('p');
+            p.textContent = paragraph;
+            aboutText.appendChild(p);
+        });
+        document.getElementById('about-image').src = data.profile.about.image;
+        document.getElementById('about-image').alt = data.profile.name;
+
+        // Preencher links sociais (exceto "Meu Site") no header e footer
+        const headerSocial = document.getElementById('header-social');
+        const socialLinks = document.getElementById('social-links');
+        const footerSocial = document.getElementById('footer-social');
+
+        data.links.forEach(link => {
+            if (link.title !== "Meu Site") {
+                // Criar link com ícone
+                const createSocialLink = () => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.url;
+                    linkElement.target = "_blank";
+                    linkElement.rel = "noopener noreferrer";
+                    linkElement.title = link.title;
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    return linkElement;
+                };
+
+                // Adicionar ao header
+                headerSocial.appendChild(createSocialLink());
+
+                // Adicionar ao hero
+                socialLinks.appendChild(createSocialLink());
+
+                // Adicionar ao footer
+                footerSocial.appendChild(createSocialLink());
+            }
+        });
+
+        // Mostrar o body após carregar tudo
+        document.body.style.visibility = 'visible';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1254 @@
+:root {
+    --primary: #fbabbf; /* Tom de rosa pastel */
+    --primary-glow: rgba(255, 181, 216, 0.5); /* Versão transparente do rosa pastel */
+    --text: #2d2d2d;
+    --background: #ffffff;
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --bg-secondary: #f5f5f5;
+    --text-primary: #2d2d2d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Ocultar barra de rolagem mantendo a funcionalidade */
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 207, 213, 0.03), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Garantir largura total */
+    left: 0; /* Corrigir deslocamento */
+    margin: 0; /* Remover margens */
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid #f266a5;
+}
+
+/* Ajustes do header para tema claro */
+[data-theme="light"] nav {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #f266a5;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Centralizar conteúdo */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.3rem 0;
+}
+
+/* Ajuste para links do header em tema claro */
+[data-theme="light"] nav a,
+[data-theme="light"] .header-social a,
+[data-theme="light"] .theme-toggle {
+    color: var(--text);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+#home {
+    min-height: 70vh;
+    padding-top: 120px;
+}
+
+section {
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 25px var(--primary-glow);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 20px var(--primary-glow);
+    }
+    50% {
+        box-shadow: 0 0 30px var(--primary-glow);
+    }
+    100% {
+        box-shadow: 0 0 20px var(--primary-glow);
+    }
+}
+
+.hero img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px var(--primary-glow);
+}
+
+.data-analytics-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.data-analytics-bg svg {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.data-analytics-bg .chart1 {
+    top: 15%;
+    left: 10%;
+    width: 180px;
+    transform: rotate(-15deg);
+}
+
+.data-analytics-bg .chart2 {
+    bottom: 20%;
+    right: 10%;
+    width: 150px;
+    transform: rotate(10deg);
+}
+
+.data-analytics-bg .dots {
+    top: 25%;
+    right: 20%;
+    width: 120px;
+}
+
+.data-analytics-bg .lines {
+    bottom: 30%;
+    left: 15%;
+    width: 100px;
+}
+
+@media (max-width: 768px) {
+    .data-analytics-bg svg {
+        transform: scale(0.7);
+    }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fbabbf;
+    text-shadow: 0 0 15px rgba(255, 181, 216, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #2d2d2d;
+}
+
+/* Ajuste para garantir visibilidade do header em ambos os temas */
+nav {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--primary);
+}
+
+[data-theme="dark"] nav {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.social-links {
+    display: flex;
+    gap: 0.5rem; /* Reduzido de 1rem para 0.5rem para aproximar os ícones */
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    /* Garantir que os ícones de redes sociais sempre permaneçam visíveis */
+    opacity: 1;
+    transform: none;
+}
+
+.social-links a {
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    /* Garantir que os links não sejam afetados por animações iniciais */
+    opacity: 1;
+    transform: none;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.social-links a:hover::before {
+    width: 100%;
+}
+
+.social-links a:hover {
+    color: var(--background);
+}
+
+.social-links a:hover i {
+    color: var(--background);
+    transform: scale(1.1);
+}
+
+.social-links a i {
+    transition: all 0.3s ease;
+}
+
+/* Estilos para os ícones de redes sociais na header e hero */
+.header-social a,
+.social-links a,
+.footer-social a {
+  color: black; /* Ajustar cor dos ícones para preto */
+  font-size: 1.5rem;
+  margin-left: 0.5rem; /* Espaçamento reduzido entre os ícones */
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+  border: none !important;
+  padding: 0.3rem;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.header-social a:hover,
+.social-links a:hover {
+  color: #fbabbf !important;
+  text-shadow: 0 0 10px rgba(255, 181, 216, 0.5);
+}
+
+/* Sobrescrever qualquer comportamento de hover anterior nos ícones */
+.social-links a:hover i {
+  color: #fbabbf !important;
+  transform: none !important;
+}
+
+/* Remover todos os estilos anteriores dos ícones */
+.header-social a::before,
+.social-links a::before,
+.header-social a::after,
+.social-links a::after {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: none !important;
+}
+
+/* Resetar valores específicos para garantir que não haja mais círculos */
+.header-social a,
+.social-links a {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Ajuste para os contêineres dos ícones */
+.header-social {
+  display: flex;
+  gap: 0.2rem; /* Reduzido de 0.3rem para 0.2rem para aproximar mais os ícones */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Configurações iniciais para animações */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+.experience-photo {
+    opacity: 0;
+    transform: translateX(-20px);
+    will-change: transform, opacity;
+}
+
+.experience-item {
+    opacity: 0;
+    transform: translateX(20px);
+    will-change: transform, opacity;
+}
+
+.contact-info {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+/* Força hardware acceleration para animações mais suaves */
+.hero img, .hero h1, .hero p, .hero .social-links a, 
+section h2, .project-card, .experience-photo, .experience-item, .contact-info {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 207, 213, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary);
+    transition: height 0.4s ease;
+}
+
+.project-card:hover::before {
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--primary-glow);
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.project-card h3 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.project-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.project-card:hover h3::after {
+    width: 100%;
+}
+
+.project-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #2d2d2d;
+}
+
+/* Ajuste para cards no tema claro */
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .experience-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.project-card a {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    border: 1px solid var(--primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.project-card a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary);
+    z-index: -1;
+}
+
+.project-card a:hover::before {
+    width: 100%;
+}
+
+.project-card a:hover {
+    color: var(--background);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.experience-content {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    gap: 2rem;
+}
+
+.experience-photo {
+    flex: 0 0 auto;
+    width: 33%;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--primary-glow);
+    border: 2px solid var(--primary);
+    position: relative;
+}
+
+.experience-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.experience-photo:hover img {
+    transform: scale(1.05);
+}
+
+.experience-items {
+    flex: 1 1 auto;
+}
+
+.experience-item {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--primary);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-glow) 0%, transparent 20%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.experience-item:hover::before {
+    opacity: 0.1;
+}
+
+.experience-item:hover {
+    transform: translateX(15px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px var(--primary-glow);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.experience-item h3 {
+    color: var(--primary);
+    margin-bottom: 0.7rem;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.experience-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.experience-item:hover h3::after {
+    width: 100%;
+}
+
+.experience-item .role {
+    color: #aaa;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+.experience-item p {
+    line-height: 1.6;
+    color: #2d2d2d;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 207, 213, 0.1);
+    transition: all 0.4s ease;
+}
+
+.contact-info:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 15px var(--primary-glow);
+    transform: translateY(-5px);
+}
+
+.contact-info a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 80%;
+    text-align: center;
+}
+
+.contact-info a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.contact-info a:hover::before {
+    width: 100%;
+}
+
+.contact-info a:hover {
+    color: var(--background);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: translateY(-3px);
+}
+
+.contact-info .social-links {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.contact-info .social-links a {
+    width: auto;
+}
+
+.developer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    justify-content: center; /* Alinhar horizontalmente */
+}
+
+.developer-info a {
+    color: black; /* Cor preta para o ícone */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.developer-info a:hover {
+    color: var(--primary); /* Cor primária ao passar o mouse */
+}
+
+/* Remover cursor personalizado */
+a, button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--background);
+}
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .header-social {
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-content {
+        flex-direction: column;
+    }
+    
+    .experience-photo {
+        width: 100%;
+        height: 450px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-info a {
+        width: 100%;
+    }
+}
+
+.projects-subtitle {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.github-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.github-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.github-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.github-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #aaa;
+}
+
+.lang-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.lang-color.python {
+    background: #3572A5;
+}
+
+.lang-color.js {
+    background: #f1e05a;
+}
+
+@media (max-width: 968px) {
+    .github-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .github-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--text);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+.github-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.github-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.github-stats i {
+    color: var(--primary);
+}
+
+.about-content {
+    display: flex;
+    max-width: 1200px;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-photo {
+    flex: 0 0 300px;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--primary-glow);
+    border: 2px solid var(--primary);
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-photo:hover img {
+    transform: scale(1.05);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #46352B;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .about-photo {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/* Estilos para seção de skills */
+#skills {
+  padding: 80px 20px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.skill-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #B7D1E2 100%);
+  border-radius: 5px;
+  transition: width 1.5s ease-out;
+}
+
+/* Estilos para GitHub Stats cards */
+.github-stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 3rem; /* Aumentando o espaçamento superior de 2rem para 3rem */
+}
+
+.github-stats-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 207, 213, 0.1);
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.github-stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 15px var(--primary-glow);
+}
+
+.github-stats-card img {
+    width: 100%;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .github-stats-card {
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 151, 167, 0.1);
+}
+
+/* Ajustes responsivos para celulares */
+@media (max-width: 768px) {
+  #skills {
+    padding: 60px 15px;
+  }
+  
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .skill-card {
+    padding: 15px;
+  }
+  
+  .github-stats-container {
+    flex-direction: column;
+    padding: 0 10px;
+    margin-top: 2rem;
+  }
+  
+  .github-stats-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .skill-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .skill-bar {
+    height: 8px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .skill-card {
+    padding: 12px;
+  }
+  
+  .github-stats-container {
+    gap: 1rem;
+  }
+  
+  .github-stats-card {
+    padding: 0.7rem;
+  }
+}
+
+footer {
+    background-color: var(--bg-secondary);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: var(--text); /* Cor inicial */
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease; /* Transição suave */
+    position: relative;
+}
+
+.footer-social a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease; /* Animação de largura */
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.footer-social a:hover::before {
+    width: 100%; /* Expandir linha ao passar o mouse */
+}
+
+.footer-social a:hover {
+    color: var(--primary); /* Alterar cor ao passar o mouse */
+    text-shadow: 0 0 10px var(--primary-glow); /* Adicionar efeito de brilho */
+}
+
+.back-to-top {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Ajustes nas cores do tema claro para melhor visibilidade */
+[data-theme="light"] .project-card p,
+[data-theme="light"] .experience-item p,
+[data-theme="light"] .about-text p {
+    color: #2d2d2d;
+}
+
+[data-theme="light"] .github-lang {
+    color: #666666;
+}
+
+[data-theme="light"] .experience-item .role {
+    color: #666666;
+}
+
+[data-theme="light"] .hero p {
+    color: #555555;
+}
+
+/* Ajustes adicionais para garantir boa legibilidade em tema claro */
+body {
+    color: #333;
+}
+
+[data-theme="light"] nav {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] nav a,
+[data-theme="light"] .header-social a,
+[data-theme="light"] .theme-toggle {
+    color: #333;
+}
+
+[data-theme="light"] nav a:hover,
+[data-theme="light"] .header-social a:hover,
+[data-theme="light"] .theme-toggle:hover {
+    color: #f266a5;
+}
+
+[data-theme="light"] .project-card {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .github-stats {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] footer {
+    background-color: #f9f9f9;
+}
+
+[data-theme="light"] .footer-social a {
+    color: #333;
+}
+
+[data-theme="light"] .footer-social a:hover {
+    color: #f266a5;
+}
+
+/* Ajuste nas cores dos botões e elementos interativos */
+.project-card a:hover,
+.contact-info a:hover,
+.tab-btn:hover,
+.tab-btn.active {
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.social-links a:hover,
+.header-social a:hover,
+.footer-social a:hover,
+nav a:hover,
+nav a.active {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
