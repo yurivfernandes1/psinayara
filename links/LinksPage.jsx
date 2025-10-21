@@ -4,7 +4,7 @@ import './style.css';
 
 const data = {
     profile: {
-        image: "https://raw.githubusercontent.com/yurivfernandes/psinayara/refs/heads/main/public/fotos/experiencias.jpeg",
+        image: "https://raw.githubusercontent.com/yurivfernandes1/psinayara/refs/heads/main/public/fotos/experiencias.jpeg",
         name: "Nayara Freitas",
         title: "Psicóloga",
         subtitle: "Terapia Cognitivo-Comportamental",

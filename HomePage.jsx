@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const data = {
     profile: {
-        image: "https://raw.githubusercontent.com/yurivfernandes/psinayara/refs/heads/main/public/fotos/experiencias.jpeg",
+        image: "https://raw.githubusercontent.com/yurivfernandes1/psinayara/refs/heads/main/public/fotos/experiencias.jpeg",
         name: "Nayara Freitas",
         title: "Psicóloga - CRP 04/56386",
         subtitle: "Terapia Cognitivo-Comportamental",
@@ -16,7 +16,7 @@ const data = {
                 "Realizo atendimentos tanto presencialmente em Contagem quanto on-line, sempre priorizando um acompanhamento humanizado e personalizado. Acredito que cada pessoa é única e merece uma escuta atenta e cuidadosa para suas questões.",
                 "Meu trabalho é focado em auxiliar você a desenvolver habilidades e estratégias para lidar com seus desafios emocionais e relacionais, promovendo autoconhecimento e bem-estar mental."
             ],
-            image: "https://raw.githubusercontent.com/yurivfernandes/psinayara/refs/heads/main/public/fotos/experiencias.jpeg"
+            image: "https://raw.githubusercontent.com/yurivfernandes1/psinayara/refs/heads/main/public/fotos/experiencias.jpeg"
         }
     },
     links: [

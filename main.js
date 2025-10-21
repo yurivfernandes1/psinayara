@@ -200,7 +200,7 @@ async function fetchGitHubProjects() {
     }
     
     // Buscar todos os repositórios do usuário usando a API autenticada
-    const response = await fetch('https://api.github.com/users/yurivfernandes/repos', {
+    const response = await fetch('https://api.github.com/users/yurivfernandes1/repos', {
       headers: headers
     });
     
@@ -682,7 +682,7 @@ socialLinks.forEach(link => {
 // Remover a função setupThemeToggle e suas referências
 
 function updateGitHubStats() {
-    const username = 'yurivfernandes';
+    const username = 'yurivfernandes1';
     
     // Cores para tema claro
     const colors = {

@@ -67,7 +67,7 @@ Habilidades técnicas com barras de progresso animadas e estatísticas do GitHub
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/yurivfernandes/drarobertamoura.git
+git clone https://github.com/yurivfernandes1/drarobertamoura.git
 ```
 
 2. Instale as dependências:
@@ -122,8 +122,8 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 <div align="center">
   <p>Desenvolvido com ❤️ por Yuri Fernandes</p>
   <p>
-    <a href="https://github.com/yurivfernandes" target="_blank">GitHub</a> •
+    <a href="https://github.com/yurivfernandes1" target="_blank">GitHub</a> •
     <a href="https://www.linkedin.com/in/yurianalistabi" target="_blank">LinkedIn</a> •
-    <a href="https://www.instagram.com/yurivfernandes" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/yurivfernandes1" target="_blank">Instagram</a>
   </p>
 </div>
