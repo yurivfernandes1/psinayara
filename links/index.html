@@ -4,82 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayara Freitas - Links</title>
+    <title>Nayara Freitas - Psicóloga de Relacionamentos</title>
+    <meta name="description"
+        content="Nayara Freitas - Psicóloga de Relacionamentos (TCC) em Contagem e Online. Agende sua consulta.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Adicionar biblioteca js-yaml -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
-<body style="opacity: 0">
-    <div class="container">
-        <div class="profile">
-            <img id="profile-img"
-                src="https://raw.githubusercontent.com/yurivfernandes1/psinayara/refs/heads/main/public/fotos/experiencias.jpeg"
-                alt="Foto de Perfil">
-            <h1>Nayara Freitas</h1>
-            <h2>Psicóloga</h2>
-            <p>Terapia Cognitivo-Comportamental</p>
-            <p class="crp">CRP 04/56386</p>
-        </div>
-        <div class="links">
-            <a href="https://wa.me/5531998471298?text=Olá%2C%20gostaria%20de%20agendar%20a%20minha%20consulta."
-                class="link-item" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                <span>Agendar Consulta</span>
-            </a>
-            <a href="https://www.instagram.com/nayarafpsi/" class="link-item" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-            <a href="https://psinayara.com.br" class="link-item" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-globe"></i>
-                <span>Meu Site</span>
-            </a>
+<body class="links-page-active">
+    <div class="links-page-wrapper">
+        <div class="links-content-container">
+            <!-- Botão de compartilhamento nativo -->
+            <button class="share-btn" aria-label="Compartilhar" onclick="handleShare()">
+                <i class="fas fa-arrow-up-from-bracket"></i>
+            </button>
+
+            <!-- Topo com foto e gradiente suave -->
+            <div class="profile-hero">
+                <div class="photo-wrapper">
+                    <img id="profile-img" src="../public/fotos/perfil.jpeg"
+                        onerror="if (!this.dataset.retry) { this.dataset.retry = '1'; this.src = '/fotos/perfil.jpeg'; } else if (this.dataset.retry === '1') { this.dataset.retry = '2'; this.src = '/fotos/experiencias.jpeg'; } else if (this.dataset.retry === '2') { this.dataset.retry = '3'; this.src = 'https://raw.githubusercontent.com/yurivfernandes1/psinayara/refs/heads/main/public/fotos/experiencias.jpeg'; }"
+                        alt="Nayara Freitas - Psicóloga de Relacionamentos">
+                    <div class="gradient-overlay"></div>
+                </div>
+
+                <div class="profile-info">
+                    <h1 class="profile-name">Nayara Freitas</h1>
+                    <p class="profile-subtitle">Terapia Cognitivo-Comportamental</p>
+                    <p class="profile-tagline">Te ajudo a ter relações saudáveis contigo e com os outros</p>
+                    <div class="profile-badge">
+                        <span>CRP 04/56386</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de links -->
+            <div class="links-list">
+                <a href="https://wa.me/5531998471298?text=Olá%2C%20gostaria%20de%20agendar%20a%20minha%20consulta."
+                    class="link-pill" target="_blank" rel="noopener noreferrer">
+                    <span class="link-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span class="link-title">Agendar Consulta</span>
+                    <span class="link-dots"><i class="fas fa-ellipsis-vertical"></i></span>
+                </a>
+
+                <a href="https://wa.me/5531998471298?text=Olá%2C%20gostaria%20de%20entrar%20na%20lista%20de%20espera%20do%20grupo%20de%20supervisão."
+                    class="link-pill" target="_blank" rel="noopener noreferrer">
+                    <span class="link-icon"><i class="fab fa-whatsapp"></i></span>
+                    <span class="link-title">Grupo de Supervisão - Lista de Espera</span>
+                    <span class="link-dots"><i class="fas fa-ellipsis-vertical"></i></span>
+                </a>
+
+                <a href="https://www.instagram.com/nayarafpsi/" class="link-pill" target="_blank"
+                    rel="noopener noreferrer">
+                    <span class="link-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="link-title">Instagram</span>
+                    <span class="link-dots"><i class="fas fa-ellipsis-vertical"></i></span>
+                </a>
+
+                <a href="https://psinayara.com.br" class="link-pill" target="_blank" rel="noopener noreferrer">
+                    <span class="link-icon"><i class="fas fa-globe"></i></span>
+                    <span class="link-title">Meu Site</span>
+                    <span class="link-dots"><i class="fas fa-ellipsis-vertical"></i></span>
+                </a>
+            </div>
         </div>
     </div>
+
     <script>
-        // Configurar animações assim que a página carregar
+        function handleShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Nayara Freitas - Psicóloga de Relacionamentos',
+                    text: 'Conheça o trabalho de Nayara Freitas, Psicóloga de Relacionamentos (TCC)',
+                    url: window.location.href
+                }).catch(() => { });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copiado para a área de transferência!');
+                }).catch(() => { });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Configurar elementos para começarem invisíveis
-            gsap.set('.profile img', { scale: 0.8, opacity: 0 });
-            gsap.set('.profile h1, .profile h2, .profile p', { y: 20, opacity: 0 });
-            gsap.set('.links a', { y: 20, opacity: 0 });
+            gsap.set('.links-content-container', { opacity: 0 });
+            gsap.set('.photo-wrapper', { opacity: 0, scale: 1.05 });
+            gsap.set('.profile-name, .profile-subtitle, .profile-badge', { opacity: 0, y: 20 });
+            gsap.set('.link-pill', { opacity: 0, y: 25 });
 
-            // Timeline para controlar a sequência de animações
-            const tl = gsap.timeline();
+            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-            // Mostrar o body mais rapidamente
-            tl.to('body', {
+            tl.to('.links-content-container', {
                 opacity: 1,
-                duration: 0.2, // Reduzido de 0.4 para 0.2
-                ease: 'power2.out'
+                duration: 0.3
             })
-                // Animar foto do perfil mais rapidamente
-                .to('.profile img', {
+                .to('.photo-wrapper', {
+                    opacity: 1,
                     scale: 1,
+                    duration: 0.8
+                }, '-=0.2')
+                .to('.profile-name, .profile-subtitle, .profile-badge', {
                     opacity: 1,
-                    duration: 0.5, // Reduzido de 0.8 para 0.5
-                    ease: 'power2.out'
-                })
-                // Animar textos do perfil com menor delay entre elementos
-                .to('.profile h1, .profile h2, .profile p', {
                     y: 0,
+                    duration: 0.5,
+                    stagger: 0.1
+                }, '-=0.4')
+                .to('.link-pill', {
                     opacity: 1,
-                    duration: 0.4, // Reduzido de 0.8 para 0.4
-                    stagger: 0.1, // Reduzido de 0.2 para 0.1
-                    ease: 'power2.out'
-                })
-                // Animar links mais rapidamente
-                .to('.links a', {
                     y: 0,
-                    opacity: 1,
-                    duration: 0.3, // Reduzido de 0.6 para 0.3
-                    stagger: 0.1, // Reduzido de 0.2 para 0.1
-                    ease: 'power2.out'
-                });
+                    duration: 0.5,
+                    stagger: 0.1
+                }, '-=0.3');
         });
     </script>
 </body>
