@@ -37,8 +37,9 @@ const data = {
 
 const LinksPage = () => {
     useEffect(() => {
-        // Ativa classe isolada no body somente enquanto estiver na página de links
+        // Ativa classe isolada no body e html somente enquanto estiver na página de links
         document.body.classList.add('links-page-active');
+        document.documentElement.classList.add('links-page-active');
 
         // Configuração de animações com GSAP
         gsap.set('.links-content-container', { opacity: 0 });
@@ -73,6 +74,7 @@ const LinksPage = () => {
         return () => {
             // Remove a classe ao sair, garantindo que o restante do site permaneça 100% inalterado
             document.body.classList.remove('links-page-active');
+            document.documentElement.classList.remove('links-page-active');
         };
     }, []);
 
